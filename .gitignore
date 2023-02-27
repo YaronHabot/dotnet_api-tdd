@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CloudCustomer.API/CloudCustomer.API.csproj.user
+/.vs
+/CloudCustomer.API/bin/Debug/net7.0
+/CloudCustomer.UnitTests/bin/Debug/net7.0
+/CloudCustomer.API/obj
+/CloudCustomer.UnitTests/obj
