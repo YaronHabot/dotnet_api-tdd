@@ -8,3 +8,5 @@
 /CloudCustomer.UnitTests/bin/Debug/net7.0
 /CloudCustomer.API/obj
 /CloudCustomer.UnitTests/obj
+/CloudCustomer.Data/bin/Debug/net6.0
+/CloudCustomer.Data/obj
