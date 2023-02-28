@@ -1,27 +1,28 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>48af4139-41ae-4d6e-84ef-88256271ebc2</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
-    <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.NetTopologySuite" Version="7.0.0" />
   </ItemGroup>
 
 </Project>

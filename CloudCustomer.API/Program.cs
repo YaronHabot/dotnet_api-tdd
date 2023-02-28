@@ -1,4 +1,7 @@
+using CloudCustomer.API.Data;
 using CloudCustomer.API.Services;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<yhApiContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("yhApiContext");
+    Console.WriteLine($"AddDbContext() connectionString={connectionString}");
+    if (connectionString != null)
+    {
+        options.UseMySQL(connectionString);
+    }
+    //  options.UseMy(builder.Configuration.GetConnectionString("yhApiContext")));
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,6 +35,18 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+//Create the tables in the database if not already existings
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<yhApiContext>();
+    context.Database.EnsureCreated();
+
+    //Seed the database
+    //DbInitializer.Initialize(context);
 }
 
 app.UseHttpsRedirection();

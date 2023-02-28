@@ -16,7 +16,7 @@ namespace CloudCustomer.UnitTests.Systems.Services
             var expectedResponse = UsersFixture.GetTestUsers();
             var handlerMock = MockHttpMessageHandler<User>.SetupBasicResourceList(expectedResponse);
             var httpClient = new HttpClient(handlerMock.Object);
-            var sut = new UsersService(httpClient);
+            var sut = new UsersService(httpClient, null);
 
             // Act
             await sut.GetAllUsers();

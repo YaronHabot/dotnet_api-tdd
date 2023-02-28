@@ -1,4 +1,6 @@
-﻿using CloudCustomer.API.Models;
+﻿using CloudCustomer.API.Data;
+using CloudCustomer.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CloudCustomer.API.Services
 {
@@ -9,16 +11,21 @@ namespace CloudCustomer.API.Services
     public class UsersService : IUsersService
     {
         private readonly HttpClient _httpClient;
-
-        public UsersService(HttpClient httpClient)
+        private readonly yhApiContext _context;
+        public UsersService(
+            HttpClient httpClient,
+            yhApiContext context
+        )
         {
             _httpClient = httpClient;
+            _context = context;
         }
 
         public async Task<List<User>> GetAllUsers()
         {
             var userResponse = await _httpClient.GetAsync("https://example.com");
-            return new List<User> { };
+            var users = await _context.Users.Take(10).ToListAsync();
+            return users;
         }
     }
 }
